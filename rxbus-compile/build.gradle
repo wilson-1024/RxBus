@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':rxbus-annotation')
+    compile 'com.squareup:javapoet:1.9.0'
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+}
+build.doLast {
+    copy{
+        from('build/libs/')
+        into('build/libs/')
+        include('rxbus-compile.jar')
+        rename('rxbus-compile.jar','rxbus-compile' + "-"+ rootProject.ext.versionName + '.jar')
+    }
+}
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

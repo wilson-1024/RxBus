@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POST数据" />
+
+        <TextView
+            android:id="@+id/post_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送的消息:" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/post_sticky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POST STICKY数据" />
+
+        <TextView
+            android:id="@+id/post_sticky_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送Sticky消息:" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/post_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POST方法数据" />
+
+        <TextView
+            android:id="@+id/post_method_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送的消息:" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/post_method_sticky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POST STICKY方法数据" />
+
+        <TextView
+            android:id="@+id/post_method_sticky_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送Sticky消息:" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/post_method_delay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POST DELAY方法数据" />
+
+        <TextView
+            android:id="@+id/post_method_delay_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送delay消息:" />
+    </LinearLayout>
+</LinearLayout>

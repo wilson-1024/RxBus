@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+build.doLast {
+    copy{
+        from('build/libs/')
+        into('build/libs/')
+        include('rxbus-annotation.jar')
+        rename('rxbus-annotation.jar','rxbus-annotation' + "-"+ rootProject.ext.versionName + '.jar')
+    }
+}
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
