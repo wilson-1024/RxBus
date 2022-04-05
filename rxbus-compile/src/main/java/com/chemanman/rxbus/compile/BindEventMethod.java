@@ -24,7 +24,7 @@ public class BindEventMethod {
             throw new IllegalArgumentException("not method");
         }
         executableElement = (ExecutableElement) element;
-        if(getParameters().size() != 1){
+        if (getParameters().size() != 1) {
             throw new IllegalArgumentException("parameter not equal to 1");
         }
         InjectMethodBind methodBind = executableElement.getAnnotation(InjectMethodBind.class);
@@ -38,7 +38,8 @@ public class BindEventMethod {
     public Name getMethodName() {
         return executableElement.getSimpleName();
     }
-    public List<? extends VariableElement> getParameters(){
+
+    public List<? extends VariableElement> getParameters() {
         return executableElement.getParameters();
     }
 }

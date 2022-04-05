@@ -48,7 +48,7 @@ public class BindEventProcesser extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         annotations.clear();
         processEventMethod(roundEnv);
-        for (AnnotatedClass annotatedClass : annotatedClassHashMap.values()){
+        for (AnnotatedClass annotatedClass : annotatedClassHashMap.values()) {
             try {
                 annotatedClass.generateFile().writeTo(filer);
             } catch (IOException e) {
@@ -60,11 +60,12 @@ public class BindEventProcesser extends AbstractProcessor {
 
     /**
      * 解析注解
+     *
      * @param roundEnv
      */
     private void processEventMethod(RoundEnvironment roundEnv) {
         Set<? extends Element> elementsAnnotatedWith = roundEnv.getElementsAnnotatedWith(InjectMethodBind.class);
-        for (Element element: elementsAnnotatedWith){
+        for (Element element : elementsAnnotatedWith) {
             AnnotatedClass annotatedClass = getAnnotatedClass(element);
             annotatedClass.addBindMethod(new BindEventMethod(element));
         }
@@ -81,8 +82,8 @@ public class BindEventProcesser extends AbstractProcessor {
     }
 
     /**
+     * 指定要被注解处理器处理的注解
      *
-     *指定要被注解处理器处理的注解
      * @return
      */
     @Override

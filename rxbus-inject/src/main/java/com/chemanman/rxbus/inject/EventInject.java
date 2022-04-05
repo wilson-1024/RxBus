@@ -23,7 +23,7 @@ public class EventInject {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             injectHashMap.get(className).inject(host);
         }
     }

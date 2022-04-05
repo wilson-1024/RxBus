@@ -21,7 +21,7 @@ import javax.lang.model.util.Elements;
 
 public class AnnotatedClass {
     private ArrayList<BindEventMethod> bindEventMethods;
-   // 注解所在类
+    // 注解所在类
     private TypeElement typeElement;
     private Elements elements;
 
@@ -64,13 +64,13 @@ public class AnnotatedClass {
             TypeSpec typeSpec = TypeSpec.anonymousClassBuilder("")
                     .addSuperinterface(ClassName.get(Common.RXBUS_PACK_NAME, "RxBus", "OnEventListener"))
                     .addMethod(MethodSpec.methodBuilder("onEvent")
-                            .addAnnotation(Override.class)
-                            .addModifiers(Modifier.PUBLIC)
-                            .returns(TypeName.VOID)
-                            .addParameter(TypeName.OBJECT, "object", Modifier.FINAL)
-                            .addStatement("$T o = ($T)object", TypeName.get(bindEventMethod.getParameters().get(0).asType()),
-                                    TypeName.get(bindEventMethod.getParameters().get(0).asType()))
-                            .addStatement("host.$N($L)", /**typeElement.getSimpleName().toString(),**/ bindEventMethod.getMethodName(), "o").build()
+                                    .addAnnotation(Override.class)
+                                    .addModifiers(Modifier.PUBLIC)
+                                    .returns(TypeName.VOID)
+                                    .addParameter(TypeName.OBJECT, "object", Modifier.FINAL)
+                                    .addStatement("$T o = ($T)object", TypeName.get(bindEventMethod.getParameters().get(0).asType()),
+                                            TypeName.get(bindEventMethod.getParameters().get(0).asType()))
+                                    .addStatement("host.$N($L)", /**typeElement.getSimpleName().toString(),**/bindEventMethod.getMethodName(), "o").build()
 //                                    .addStatement("m$N.$N($L)", typeElement.getSimpleName().toString(), bindEventMethod.getMethodName(), "o").build()
                     ).build();
             //声明类成员变量（匿名内部类）
