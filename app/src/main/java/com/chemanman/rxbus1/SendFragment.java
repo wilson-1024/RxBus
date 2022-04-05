@@ -82,7 +82,7 @@ public class SendFragment extends Fragment {
             public void onClick(View v) {
                 ExpE e = new ExpE();
                 e.value = n;
-                RxBus.getDefault().postDelayed(e,3000);
+                RxBus.getDefault().postDelayed(e, 3000);
                 postMethodStickyTV.setText(postMethodDealyTV.getText() + "," + n);
                 n += 1;
             }

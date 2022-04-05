@@ -40,7 +40,7 @@ public class RevFragment extends Fragment {
 //        RxBus.getDefault().register(textEventListener,ExpEvent.class);
         List<Class> classes = new ArrayList<>();
         classes.add(ExpEvent.class);
-        if(!classes.contains(ExpEvent.class)){
+        if (!classes.contains(ExpEvent.class)) {
             classes.add(ExpEvent.class);
         }
         return view;
@@ -64,7 +64,7 @@ public class RevFragment extends Fragment {
         @Override
         public void onEvent(Object o) {
             ExpEvent expEvent = (ExpEvent) o;
-            RevFragment.this.postTV.setText(postTV.getText()+","+expEvent.value);
+            RevFragment.this.postTV.setText(postTV.getText() + "," + expEvent.value);
 //            RevFragment.this.postTV
         }
     };

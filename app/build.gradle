@@ -47,7 +47,7 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile files('libs/rxbus-annotation-1.0.2.jar')
-        compile(name: 'rxbus-inject-1.0.2', ext: 'aar')
+    compile(name: 'rxbus-inject-1.0.2', ext: 'aar')
     annotationProcessor files('libs/rxbus-compile-1.0.2.jar')
-        compile 'com.squareup:javapoet:1.9.0'
+    compile 'com.squareup:javapoet:1.9.0'
 }
