@@ -58,6 +58,7 @@ public final class RxBus {
     public static final int MSG_DEFAULT = 0;  // 默认通知类型，注册后有新状态才会收到更新
     public static final int MSG_STICKY = 1;  // 注册后立即收到当前消息的状态值
     private static final int DELAY_MSG = 0;//延时发送消息
+
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({MSG_DEFAULT, MSG_STICKY})
     @interface MsgType {
@@ -77,7 +78,7 @@ public final class RxBus {
 
         @Override
         public boolean handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case DELAY_MSG:
                     mBus.onNext(msg.obj);
                     break;
@@ -117,15 +118,17 @@ public final class RxBus {
 
     /**
      * 延时发送事件
-     * @param event 事件类
+     *
+     * @param event       事件类
      * @param delayMillis 延时时间（ms）
      */
-    public final void postDelayed(Object event ,long delayMillis){
+    public final void postDelayed(Object event, long delayMillis) {
         Message message = new Message();
         message.what = DELAY_MSG;
         message.obj = event;
-        mHandler.sendMessageDelayed(message,delayMillis);
+        mHandler.sendMessageDelayed(message, delayMillis);
     }
+
     /**
      * 发送缓存事件（事件的每个状态都会被记录下来）
      *
@@ -204,7 +207,7 @@ public final class RxBus {
         if (mListenerEventSet.containsKey(t)) {
             List<Class<?>> l = mListenerEventSet.get(t);
             for (Class<?> cls : l) {
-                if(mEventListenerSet.containsKey(cls)){
+                if (mEventListenerSet.containsKey(cls)) {
                     mEventListenerSet.get(cls).remove(t);
 
                     if (mEventListenerSet.get(cls).isEmpty()) {
@@ -259,15 +262,6 @@ public final class RxBus {
 
     public void inject(Object host) {
         String className = host.getClass().getName();
-//        Class<?> aClass = null;
-//        try {
-//            aClass = Class.forName(className + "_BindInject");
-//            Inject inject = (Inject) aClass.newInstance();
-//            inject.inject(host);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
         Inject inject = injectHashMap.get(className);
 
         if (inject == null) {
@@ -279,7 +273,7 @@ public final class RxBus {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             inject.inject(host);
         }
     }
