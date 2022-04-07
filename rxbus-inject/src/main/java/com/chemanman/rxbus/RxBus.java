@@ -245,8 +245,9 @@ public final class RxBus {
 
                         @Override
                         public void onNext(Object o) {
-                            if (mEventListenerSet.containsKey(o.getClass())) {
-                                for (Object obj : mEventListenerSet.get(o.getClass())) {
+                            List<Object> objects= mEventListenerSet.get(o.getClass());
+                            if(objects!=null && !objects.isEmpty()){
+                                for (Object obj : objects) {
                                     if (obj instanceof OnEventListener) {
                                         ((OnEventListener) obj).onEvent(o);
                                     }
